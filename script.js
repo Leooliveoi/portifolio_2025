@@ -127,6 +127,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Vertical Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navClose = document.getElementById('navClose');
+    const body = document.body;
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            body.classList.toggle('menu-open');
+        });
+    }
+    
+    if (navClose) {
+        navClose.addEventListener('click', function() {
+            body.classList.remove('menu-open');
+        });
+    }
+    
+    // Close menu when clicking on a link (mobile)
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                body.classList.remove('menu-open');
+            }
+        });
+    });
+    
+    // Active menu item based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    
+    function highlightNavItem() {
+        const scrollY = window.pageYOffset;
+        
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active');
+            } else {
+                document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', highlightNavItem);
+    
     // Initialize any other interactive elements
     initializeReportCards();
 });
