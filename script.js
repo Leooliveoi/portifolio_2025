@@ -109,13 +109,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Education & Certifications Dropdown Toggle
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Education & Certifications Dropdown Toggle
     const educationToggle = document.getElementById('educationToggle');
     const educationContent = document.getElementById('educationContent');
     const toggleIcon = document.querySelector('.toggle-icon');
     
-    educationToggle.addEventListener('click', function() {
-        educationContent.classList.toggle('active');
-        toggleIcon.classList.toggle('active');
-    });
+    if (educationToggle && educationContent && toggleIcon) {
+        // Set initial state - open by default for GitHub Pages
+        educationContent.classList.add('active');
+        toggleIcon.classList.add('active');
+        
+        educationToggle.addEventListener('click', function() {
+            educationContent.classList.toggle('active');
+            toggleIcon.classList.toggle('active');
+        });
+    }
+    
+    // Initialize any other interactive elements
+    initializeReportCards();
 });
+
+// Function to initialize report cards
+function initializeReportCards() {
+    const reportCards = document.querySelectorAll('.report-card');
+    
+    reportCards.forEach(card => {
+        // Add click event to the entire card
+        card.addEventListener('click', function(e) {
+            // Only trigger if not clicking on a direct link
+            if (!e.target.closest('a')) {
+                const link = this.querySelector('.report-link');
+                if (link) {
+                    window.open(link.href, '_blank');
+                }
+            }
+        });
+    });
+}

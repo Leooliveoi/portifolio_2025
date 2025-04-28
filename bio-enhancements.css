@@ -272,7 +272,7 @@
     }
 }
 
-/* Education & Certifications Dropdown */
+/* Education & Certifications Dropdown - GitHub Pages Fix */
 .education-container {
     margin-top: 40px;
     background-color: #fff;
@@ -312,17 +312,27 @@
     transform: rotate(180deg);
 }
 
+/* Modified for GitHub Pages - default to open state */
 .education-content {
-    max-height: 0;
-    overflow: hidden;
+    /* Default to open for no-JS environments like GitHub Pages */
+    max-height: 2000px;
+    padding: 20px;
     transition: max-height 0.5s ease;
 }
 
-.education-content.active {
-    max-height: 1500px; /* Adjust based on content */
+/* Only apply collapse when JS is working */
+.js-enabled .education-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.js-enabled .education-content.active {
+    max-height: 2000px;
     padding: 20px;
 }
 
+/* Rest of the education styles remain unchanged */
 .education-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
