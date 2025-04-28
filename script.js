@@ -89,3 +89,33 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // Run animation on scroll
 window.addEventListener('scroll', animateOnScroll);
+
+// Report thumbnail interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const reportCards = document.querySelectorAll('.report-card');
+    
+    reportCards.forEach(card => {
+        // Add click event to the entire card (except buttons)
+        card.addEventListener('click', function(e) {
+            // If the click is not on a button, trigger the preview link
+            if (!e.target.closest('.btn-view') && !e.target.closest('.btn-download')) {
+                const previewLink = this.querySelector('.btn-view');
+                if (previewLink) {
+                    previewLink.click();
+                }
+            }
+        });
+    });
+});
+
+// Education & Certifications Dropdown Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const educationToggle = document.getElementById('educationToggle');
+    const educationContent = document.getElementById('educationContent');
+    const toggleIcon = document.querySelector('.toggle-icon');
+    
+    educationToggle.addEventListener('click', function() {
+        educationContent.classList.toggle('active');
+        toggleIcon.classList.toggle('active');
+    });
+});

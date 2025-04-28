@@ -1,0 +1,385 @@
+/* Enhanced About Bio Styling */
+.bio-intro {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    border-left: 3px solid #3498db;
+    padding-left: 15px;
+}
+
+.highlight-large {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #3498db;
+}
+
+.bio-focus-area, .bio-approach, .bio-achievements, .bio-innovation {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.bio-focus-area h4, .bio-approach h4, .bio-achievements h4, .bio-innovation h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    position: relative;
+    display: inline-block;
+}
+
+.bio-focus-area h4:after, .bio-approach h4:after, .bio-achievements h4:after, .bio-innovation h4:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #3498db;
+}
+
+.achievement-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.metric {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    background-color: #f8f9fa;
+    padding: 15px 10px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.metric:hover {
+    transform: translateY(-5px);
+}
+
+.metric-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive adjustments for metrics */
+@media (max-width: 768px) {
+    .achievement-metrics {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .metric {
+        width: 100%;
+    }
+}
+
+/* Add these styles to your bio-enhancements.css file */
+
+/* Highlight Sections - Fluid Layout */
+.highlight-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.highlight-section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.approach-section .highlight-icon i {
+    color: #3498db;
+    font-size: 1.5rem;
+}
+
+.track-section .highlight-icon i {
+    color: #2ecc71;
+    font-size: 1.5rem;
+}
+
+.innovation-section .highlight-icon i {
+    color: #9b59b6;
+    font-size: 1.5rem;
+}
+
+.highlight-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Achievement metrics in highlight section */
+.highlight-section .achievement-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.highlight-section .metric {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+    background-color: #f8f9fa;
+    padding: 12px 8px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.highlight-section .metric-number {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 5px;
+}
+
+.highlight-section .metric-label {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .highlight-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Enhanced Core Focus Text */
+.focus-text {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Improved Credentials Container */
+.credentials-container {
+    margin-top: 40px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.credentials-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.credentials-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.credentials-title {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.credentials-icon {
+    color: #3498db;
+}
+
+.credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.credential {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.credential:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.credential i {
+    color: #3498db;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.specializations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .credentials-wrapper {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .specializations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Education & Certifications Dropdown */
+.education-container {
+    margin-top: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.education-header {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.education-header:hover {
+    background-color: #2980b9;
+}
+
+.education-header h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.education-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.education-content.active {
+    max-height: 1500px; /* Adjust based on content */
+    padding: 20px;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.education-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.education-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.education-details h5 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.education-details p {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.education-year {
+    font-size: 0.8rem;
+    color: #777;
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+}
