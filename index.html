@@ -1,670 +1,1421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OiSecurity - Cybersecurity Professional Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="bio-enhancements.css">
-    <link href="https://fonts.googleapis.com/css2?family=Baron&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- JavaScript detection -->
-    <script>
-        // Add js-enabled class to body if JavaScript is enabled
-        document.documentElement.className = document.documentElement.className.replace('no-js', 'js-enabled');
-    </script>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leonardo O. OI — Cybersecurity Consultant</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <style>
+
+@media print {
+  nav, header, footer {
+    display: none;
+  }
+  body {
+    color: black;
+    background: white;
+  }
+  * {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+}
+
+    /* Global Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0eee9, #c2beba);
+      color: #302c2b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: #302c2b;
+      transition: color 0.25s ease;
+    }
+    a:hover, a:focus {
+      color: #6a635d;
+      outline: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1080px;
+      padding: 0 24px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      backdrop-filter: saturate(180%) blur(8px);
+      padding: 16px 0;
+      z-index: 999;
+      box-shadow: 0 3px 8px rgba(48,44,43,0.3);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #f0eee9;
+      letter-spacing: 0.05em;
+      user-select: none;
+      font-style: italic;
+    }
+    nav a {
+      color: #f0eee9;
+      font-weight: 500;
+      margin-left: 28px;
+      font-size: 1rem;
+      padding: 4px 0;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: #d1c9bf;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    nav a:hover::after, nav a:focus::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 56px;
+
+      min-height: 80vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 80px 24px 96px;
+      background: linear-gradient(135deg, #2c3e50, #34495e);      color: #f0eee9;
+    }
+    .hero-text {
+      max-width: 480px;
+      flex: 1 1 400px;
+      animation: fadeSlideIn 1s ease forwards;
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    .hero-text h1 {
+      font-size: 3.6rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      user-select: none;
+    }
+    .hero-text h2 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 28px;
+      max-width: 420px;
+      color: white
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      max-width: 430px;
+      letter-spacing: 0.01em;
+      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      border-radius: 32px;
+      background: #f0eee9;
+      color: #423d39;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(240, 238, 233, 0.8);
+      transition: background 0.3s ease, color 0.3s ease;
+      border: none;
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: #423d39;
+      color: #f0eee9;
+      outline: none;
+      box-shadow: 0 0 20px #f0eee9aa;
+      transform: scale(1.04);
+    }
+
+    /* Hero image */
+    .hero-image {
+      flex: 1 1 280px;
+      max-width: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(66,61,57,0.8);
+      position: relative;
+      animation: fadeSlideIn 1.2s ease forwards;
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+    }
+
+    /* Section structure */
+    section {
+      background: rgba(240, 238, 233, 0.9);
+      border-radius: 24px;
+      padding: 48px 32px;
+      margin-top: 56px;
+      margin-bottom: 56px;
+      box-shadow:
+        4px 6px 24px rgba(0, 0, 0, 0.08),
+        inset 0 0 40px 2px #302c2b15;
+      backdrop-filter: saturate(180%) blur(15px);
+      user-select: none;
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1.6rem;
+      user-select: text;
+      color: #302c2b;
+      border-bottom: 3px solid #423d39;
+      padding-bottom: 0.45em;
+      max-width: fit-content;
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      user-select: text;
+      color: #423d39dd;
+      line-height: 1.6;
+    }
+
+    /* Skills Section */
+#skills ul {
+  list-style: none;
+  padding-left: 0;
+  user-select: text;
+}
+#skills li {
+  position: relative;
+  padding-left: 24px;
+  color: #302c2bdd;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+#skills li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: #423d39;
+  user-select: none;
+}
+
+/* Enhanced Skills Section */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.skills-category h3 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  color: #423d39;
+  border-bottom: 2px solid #d6ccbf;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.skills-category ul {
+  padding-left: 0;
+}
+
+.skills-category li {
+  margin-bottom: 12px;
+}
+
+    /* Metrics Section */
+    #metrics {
+      pointer-events: none; /* avoid accidental selection */
+    }
+    .skill-bar-container {
+      margin-top: 32px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: none;
+    }
+    .skill-bar {
+      margin-bottom: 24px;
+    }
+    .skill-label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      user-select: text;
+      color: #423d39;
+    }
+    .progress-background {
+      height: 24px;
+      border-radius: 32px;
+      background: #d6ccbfb8;
+      overflow: hidden;
+      box-shadow: inset 0 3px 8px #a69f9780;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #302c2bdd, #675f5966);
+      border-radius: 32px;
+      box-shadow: 0 4px 10px #302c2bcc;
+      transition: width 1.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f0eee9dd;
+      padding-right: 16px;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+
+    /* Experience Section */
+    #experience h3 {
+      font-weight: 600;
+      font-size: 1.35rem;
+      margin-top: 1.6rem;
+      margin-bottom: 6px;
+      color: #423d39;
+      user-select: text;
+    }
+    #experience p {
+      font-weight: 500;
+      font-style: italic;
+      font-size: 1rem;
+      margin: 0 0 8px 0;
+      color: #615a53dd;
+      user-select: text;
+    }
+    #experience ul {
+      margin-top: 0;
+      list-style: disc inside;
+      user-select: text;
+      max-width: 720px;
+      color: #423d3990;
+    }
+    #experience ul li {
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    /* Values Section */
+    #values ul {
+      max-width: 720px;
+      margin: 0 auto;
+      list-style: none;
+      padding-left: 0;
+      font-weight: 600;
+      color: #423d3988;
+      font-size: 1.1rem;
+      user-select: text;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px 36px;
+    }
+    #values ul li {
+      position: relative;
+      padding-left: 28px;
+    }
+    #values ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #675f59dd;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    /* Contact Section */
+    #contact p, #contact a {
+      font-size: 1.15rem;
+      color: #302c2bdd;
+      max-width: 720px;
+      user-select: text;
+    }
+    #contact a {
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+    #contact a:hover,
+    #contact a:focus {
+      color: #675f59cc;
+    }
+    .material-icons {
+      font-size: 20px;
+      user-select: none;
+      color: #423d3980;
+      transition: color 0.3s ease;
+    }
+    #contact a:hover .material-icons,
+    #contact a:focus .material-icons {
+      color: #675f59dd;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px 12px;
+      background: #302c2b;
+      color: #f0eee9cc;
+      font-weight: 500;
+      font-size: 0.875rem;
+      user-select: none;
+      letter-spacing: 0.02em;
+    }
+
+    /* Animations */
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Utilities */
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px,1px,1px,1px);
+      white-space: nowrap;
+      border: 0;
+      padding: 0;
+      margin: -1px;
+    }
+
+    /* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+.service-item {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.service-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #302c2b;
+}
+
+/* Tools Grid */
+.tools-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 30px;
+}
+
+.tools-category {
+  margin-bottom: 40px;
+}
+
+.tools-category h3 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: #444;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+/* Horizontal scroll container */
+.tools-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+.tools-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.tools-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.tool-item {
+  flex: 0 0 auto;
+  min-width: 160px;
+  background: linear-gradient(to top left, #ffffff, #f5f5f5);
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #1d1d1d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+  scroll-snap-align: start;
+}
+
+.tool-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  color: #2b2b2b;
+}
+
+.tool-item small {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #666;
+}
+
+/* Compliance Section*/
+
+#compliance h2 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 30px;
+}
+
+.compliance-category {
+  margin-bottom: 40px;
+}
+
+.compliance-category h3 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: #444;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+/* Scroll horizontal */
+.compliance-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+.compliance-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.compliance-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Certifications */
+#certifications h2 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 30px;
+}
+
+/* Scrollable row */
+.certifications-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  padding-left: 10px;
+}
+.certifications-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.certifications-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Card for each certification */
+.certification-item {
+  flex: 0 0 auto;
+  min-width: 180px;
+  background: linear-gradient(to top left, #ffffff, #f5f5f5);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+  scroll-snap-align: start;
+  border: 1px solid #e0e0e0;
+}
+
+.certification-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #2b2b2b;
+}
+
+.certification-item small {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #666;
+}
+
+
+.compliance-item {
+  flex: 0 0 auto;
+  min-width: 160px;
+  background: linear-gradient(to top left, #ffffff, #f5f5f5);
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #1d1d1d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+  scroll-snap-align: start;
+}
+
+.compliance-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  color: #2b2b2b;
+}
+
+.compliance-item small {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #666;
+}
+
+
+/* Testimonials */
+.testimonial {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 32px;
+  border-radius: 16px;
+  margin-top: 24px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 24px;
+  color: #423d39;
+}
+.testimonial-author h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.testimonial-author p {
+  margin: 4px 0 0;
+  font-style: normal;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Metrics */
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+.metric {
+  background: #302c2b;
+  color: #f0eee9;
+  padding: 12px 20px;
+    border-radius: 32px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+    /* Spider Chart Styling */
+    .chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .chart-wrapper {
+      position: relative;
+      height: 60vh;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+    
+    .legend-label {
+      font-weight: 600;
+      color: #423d39;
+    }
+  </style>
 </head>
-<body class="no-js">
-    <header>
-        <div class="container">
-            <div class="logo">
-                <!-- Replace text logo with image logo -->
-                <a href="index.html">
-                    <img src="images/logo.png" alt="OiSecurity Logo" class="logo-image">
-                </a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#tools">Tools</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact" class="btn-contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body>
+  <header role="banner">
+    <div class="nav-container" role="navigation" aria-label="Primary navigation">
+      <div class="logo" tabindex="0">Leonardo O. OI</div>
+      <nav>
+        <a href="#about" tabindex="0">About</a>
+        <a href="#skills" tabindex="0">Skills</a>
+        <a href="#metrics" tabindex="0">Metrics</a>
+        <a href="#experience" tabindex="0">Experience</a>
+        <a href="#certifications" tabindex="0">Credentials</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Securing Your Digital Future</h1>
-                <p>Expert cybersecurity solutions to protect your business from evolving threats</p>
-                <a href="#contact" class="btn-primary">Get in Touch</a>
-            </div>
-        </div>
+  <main>
+    <section class="hero container" aria-label="Introduction and summary about Leonardo" tabindex="0">
+      <div class="hero-text">
+        <h1>Leonardo O. OI</h1>
+        <h2>Cybersecurity Consultant & Pentester</h2>
+        <p>
+          I help businesses stay secure by identifying vulnerabilities and improving security posture through penetration testing and consulting. Proactive, detail-oriented, and driven to make technology safer.
+        </p>
+        <p>Contact Channels:</p>
+        <a href="mailto: leonardooi@oisecurity.co" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true"></span> 
+        <button class="btn-primary" aria-label="Contact Leonardo via email">
+          e-mail
+        </button>
+        </a>
+        <a href="https://www.linkedin.com/in/leonardooliveoi/" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true"></span> 
+        <button class="btn-primary" aria-label="Connect with Leonardo via email">
+          LinkedIn
+        </button>
+        </a>
+
+        
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <!--<img
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e89ef95f-9acd-4ac1-8ddb-151e3ba7778b.png"
+          alt="Professional portrait photo placeholder showing Leonardo O. OI"
+          width="320"
+          height="427"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />-->
+        <img
+          src="foto.jpg"
+          alt="Professional portrait photo placeholder showing Leonardo O. OI"
+          width="320"
+          height="427"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+      </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            
-            
-            
-            <!-- Original about content with removed sections -->
-            <div class="about-content">
-                <div class="about-image">
-                    <!-- Replace placeholder with a more professional image container -->
-                    <div class="profile-container">
-                        <!-- Option 1: If you have a profile photo -->
-                        <img src="images/profile.png" alt="Leonardo de Oliveira Oi" class="profile-image">
-                        
-                        <!-- Social media links -->
-                        <div class="social-links">
-                            <a href="https://linkedin.com/in/leonardooliveoi" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/leooliveoi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="mailto:leonardooi@oisecurity.co" title="E-Mail"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h3>Leonardo de Oliveira Oi</h3>
-                    <div class="about-bio">
-                        <p class="bio-intro">
-                            <span class="highlight-large">Cybersecurity Consultant</span> with <span class="highlight">5+ years</span> of experience and over a <span class="highlight">decade in IT</span>, dedicated to protecting digital assets through innovative security solutions.
-                        </p>
-                        
-                        <div class="bio-focus-area">
-                            <h4>Core Focus</h4>
-                            <p class="focus-text">
-                                I specialize in delivering <span class="highlight">enterprise-grade security solutions</span> tailored for small and mid-sized businesses that lack dedicated security teams. My methodology combines thorough technical analysis with practical business context to create security strategies that are both effective and implementable.
-                            </p>
-                            <p class="focus-text">
-                                By leveraging automation and AI-assisted tools, I provide comprehensive security services that would typically require an entire team, making advanced protection accessible and affordable for growing organizations.
-                            </p>
-                        </div>
-                        
-                        <p class="tagline">
-                            <span class="highlight-box">Securing tomorrow's digital landscape, today.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-             <!-- Moved sections outside the about-content -->
-             <div class="highlight-sections">
-                <div class="highlight-section approach-section">
-                    <div class="highlight-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h3>Unique Approach</h3>
-                        <p>
-                            Bridging the gap between <span class="highlight">human expertise</span> and <span class="highlight">AI-powered automation</span> to deliver security solutions that are:
-                        </p>
-                        
-                        <div class="key-benefits">
-                            <div class="benefit"><i class="fas fa-bullseye"></i> Precision-focused</div>
-                            <div class="benefit"><i class="fas fa-expand-arrows-alt"></i> Highly scalable</div>
-                            <div class="benefit"><i class="fas fa-dollar-sign"></i> Budget-optimized</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="highlight-section track-section">
-                    <div class="highlight-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h3>Track Record</h3>
-                        <div class="achievement-metrics">
-                            <div class="metric">
-                                <span class="metric-number">30+</span>
-                                <span class="metric-label">Penetration Tests</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-number">400+</span>
-                                <span class="metric-label">Vulnerabilities</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-number">5.8K+</span>
-                                <span class="metric-label">Hours of Experience</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="highlight-section innovation-section">
-                    <div class="highlight-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h3>Current Innovation</h3>
-                        <p class="current-project">
-                            Developing <span class="highlight-box">OiSentinel</span> — an <span class="highlight">AI-powered security platform</span> that automates up to <span class="highlight">90%</span> of the assessment process.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="credentials-container">
-                <div class="credentials-wrapper">
-                    <div class="credentials-column">
-                        <h4 class="credentials-title"><i class="fas fa-certificate credentials-icon"></i>Certifications</h4>
-                        <div class="credentials">
-                            <div class="credential">
-                                <i class="fas fa-award"></i>
-                                <span>MBA in InfoSec</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-award"></i>
-                                <span>SYCP Certified</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-award"></i>
-                                <span>eJPT Certified</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-award"></i>
-                                <span>CC Certified</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-award"></i>
-                                <span>CertiProf CAPC</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-award"></i>
-                                <span>ISO|IEC 270001 Associate  </span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-award"></i>
-                                <span>CISCO CyberOps Associate (2022)  </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="credentials-column">
-                        <h4 class="credentials-title"><i class="fas fa-check-circle credentials-icon"></i>Compliance Expertise</h4>
-                        <div class="credentials">
-                            <div class="credential">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>PCI-DSS Compliance</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>SAMA Compliance</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>ISO-27K Compliance</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>LGPD</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>GDPR  </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="credentials-column">
-                        <h4 class="credentials-title"><i class="fas fa-star credentials-icon"></i>Specializations</h4>
-                        <div class="credentials specializations-grid">
-                            <div class="credential">
-                                <i class="fas fa-globe"></i>
-                                <span>WebApp Security</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Mobile Security</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Network Security</span>
-                            </div>
-                            <div class="credential">
-                                <i class="fas fa-cloud"></i>
-                                <span>Cloud Security</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Replace the duplicate credentials container with a stylized dropdown -->
-            <div class="education-container">
-                <div class="education-header" id="educationToggle">
-                    <h4><i class="fas fa-graduation-cap"></i> Education & Certifications</h4>
-                    <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="education-content" id="educationContent">
-                    <div class="education-grid">
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-university"></i></div>
-                            <div class="education-details">
-                                <h5>210W-06 ICS Cybersecurity Threats</h5>
-                                <p>CISA</p>
-                                <span class="education-year">2024</span>
-                            </div>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Linux Privilege Escalation for Begginers</h5>
-                                <p>TCM Academy</p>
-                                <span class="education-year">2024</span>
-                            </div>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Windows Privilege Escalation for Begginers</h5>
-                                <p>TCM Academy</p>
-                                <span class="education-year">2024</span>
-                            </div>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Cyber Operations</h5>
-                                <p>Descomplica</p>
-                                <span class="education-year">2023</span>
-                            </div>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Cyber Threat Management</h5>
-                                <p>Descomplica</p>
-                                <span class="education-year">2023</span>
-                            </div>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Network Defense</h5>
-                                <p>Descomplica</p>
-                                <span class="education-year">2023</span>
-                            </div>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Endpoint Security</h5>
-                                <p>Descomplica</p>
-                                <span class="education-year">2023</span>
-                            </div>
-                        </div>
-
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Practical Web Application Security and Testing</h5>
-                                <p>TCM Academy</p>
-                                <span class="education-year">2023</span>
-                            </div>
-                        </div>
-
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Movement, Pivoting and Persistence</h5>
-                                <p>TCM Academy</p>
-                                <span class="education-year">2023</span>
-                            </div>
-                        </div>
-
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Mobile Application Penetration Testing</h5>
-                                <p>TCM Academy</p>
-                                <span class="education-year">2022</span>
-                            </div>
-                        </div>
-
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Pratical Ethical Hacking</h5>
-                                <p>TCM Academy</p>
-                                <span class="education-year">2022</span>
-                            </div>
-                        </div>
-
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>CyberOps Associate BootCamp</h5>
-                                <p>Cisco</p>
-                                <span class="education-year">2022</span>
-                            </div>
-                        </div>
-
-                        <div class="education-item">
-                            <div class="education-icon"><i class="fas fa-award"></i></div>
-                            <div class="education-details">
-                                <h5>Pentest Profissional v2021</h5>
-                                <p>Solyd Offensive Security</p>
-                                <span class="education-year">2022</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
+    <section id="about" tabindex="0" aria-label="About Leonardo O. OI">
+      <h2>About Me</h2>
+      <p>
+        Cybersecurity Consultant and Pentester with a background in penetration testing, vulnerability assessment, and compliance (PCI-DSS, ISO 27001, SAMA, LGPD). Successfully delivered over 30 offensive security projects across the US, India, Saudi Arabia, and Brazil. Skilled at communicating complex security topics to technical and non-technical teams alike. 
+        <br><br>
+        Founder and Principal Cybersecurity Consultant at OiSecurity firm.
+      </p>
+      <br>
+      <div class="highlight-sections">
+        <div class="highlight-section">
+          <h3>Track Record</h3>
+          <div class="metrics">
+            <div class="metric">30+ Penetration Tests</div>
+            <div class="metric">300+ Vulnerabilities Discovered</div>
+            <div class="metric">5.8K+ Hours of Experience</div>
+            <div class="metric">4+ Years of Experience</div>
+              
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Services Offered</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Vulnerability Assessment</h3>
-                    <p>Comprehensive scanning and analysis to identify security weaknesses in your systems and applications.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-secret"></i>
-                    </div>
-                    <h3>Penetration Testing</h3>
-                    <p>Simulated cyber attacks to evaluate the security of your IT infrastructure and identify exploitable vulnerabilities.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Security Architecture</h3>
-                    <p>Design and implementation of robust security frameworks tailored to your organization's specific needs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <h3>Red Teaming</h3>
-                    <p>Advanced adversary simulation to test your organization's detection and response capabilities against real-world attack scenarios.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Security Training</h3>
-                    <p>Customized training programs to enhance your team's security awareness and response capabilities.</p>
-                </div>
-            </div>
+    <section id="skills" tabindex="0" aria-label="Core Skills">
+      <h2>Core Skills</h2>
+      <div class="skills-container">
+        <div class="skills-category">
+          <h3>Technical Expertise</h3>
+          <ul>
+            <li>Penetration Testing (Web, Mobile, Network, Cloud)</li>
+            <li>Python and JavaScript Programming</li>
+            <li>Process Automation and Scripting</li>
+            <li>Threat Modeling and Vulnerability Assessment</li>
+            <li>Secure Software Development Lifecycle (SSDLC)</li>
+          </ul>
         </div>
-    </sectio>    <!-- New Report Samples Section -->
-    <section id="reports" class="reports">
-        <div class="container">
-            <h2 class="section-title">Report Samples</h2>
-            <p class="section-description">Review sample reports to understand my comprehensive approach to security assessments and documentation.</p>
-            
-            <div class="reports-grid">
-                <div class="report-card">
-                    <div class="report-thumbnail">
-                        <img src="images/report-thumbnail-1.jpg" alt="Web Application Penetration Test Report" class="report-img">
-                        <div class="report-overlay">
-                            <div class="overlay-buttons">
-                                <a href="assets/reports/web-application-pentest-sample.pdf" target="_blank" class="btn-view">
-                                    <i class="fas fa-eye"></i> Preview
-                                </a>
-                                <a href="assets/reports/web-application-pentest-sample.pdf" download class="btn-download">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="report-info">
-                        <h3>Web Application Penetration Test</h3>
-                        <p>Comprehensive assessment of web application security vulnerabilities with detailed remediation steps.</p>
-                        <div class="report-meta">
-                            <span class="report-tag">Redacted Sample</span>
-                            <span class="report-pages"><i class="fas fa-file-alt"></i> 38 pages</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="report-card">
-                    <div class="report-thumbnail">
-                        <img src="images/report-thumbnail-2.jpg" alt="Network Infrastructure Security Assessment Report" class="report-img">
-                        <div class="report-overlay">
-                            <div class="overlay-buttons">
-                                <a href="#" target="_blank" class="btn-view">
-                                    <i class="fas fa-eye"></i> Preview
-                                </a>
-                                <a href="#" download class="btn-download">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="report-info">
-                        <h3>Network Infrastructure Assessment</h3>
-                        <p>In-depth evaluation of network security posture with prioritized findings and actionable recommendations.</p>
-                        <div class="report-meta">
-                            <span class="report-tag">Redacted Sample</span>
-                            <span class="report-pages"><i class="fas fa-file-alt"></i> 32 pages</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="reports-note">
-                <i class="fas fa-info-circle"></i>
-                <p>All sample reports have been redacted to protect client confidentiality while demonstrating assessment methodology and reporting style.</p>
-            </div>
+        <div class="skills-category">
+          <h3>Infrastructure & Platforms</h3>
+          <ul>
+            <li>Cloud Platforms (AWS, Azure, Cloudflare)</li>
+            <li>Linux (Kali, Ubuntu, Fedora), Windows</li>
+            <li>Container Security (Docker, Kubernetes)</li>
+            <li>CI/CD Security Integration</li>
+            <li>VMWare ESXi Virtualization</li>
+
+          </ul>
         </div>
+        <div class="skills-category">
+          <h3>Professional Skills</h3>
+          <ul>
+            <li>Effective Communication with Technical and Non-Technical Teams</li>
+            <li>Rapid Adaptation to New Tools and Methodologies</li>
+            <li>Security Documentation and Reporting</li>
+            <li>Client-focused Security Consulting</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section id="tools" class="tools">
-        <div class="container">
-            <h2 class="section-title">Tools Used</h2>
-            
-            <!-- Featured Tool - OiSentinel -->
-            <div class="featured-tool">
-                <div class="featured-tool-content">
-                    <div class="featured-tool-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="featured-tool-info">
-                        <h3>OiSentinel</h3>
-                        <p>My proprietary AI-powered security platform that automates vulnerability discovery, exploitation, and reporting. OiSentinel integrates advanced machine learning algorithms to identify complex attack vectors, prioritize vulnerabilities based on real-world exploitability, and generate comprehensive reports—all while reducing assessment time by up to 90%.</p>
-                        <span class="tool-badge">In Development</span>
-                        <span class="tool-badge" style="background-color: green;">AI-Powered</span>
-                        <span class="tool-badge" style="background-color: red;">Automation</span>
-                        <span class="tool-badge" style="background-color: purple;">Offensive Tool</span>
-                    </div>
-                </div>
-            </div>
-            
-            <h3 class="tools-subtitle">Professional Arsenal</h3>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>Nmap</h3>
-                    <p>Network discovery and security auditing</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-bug"></i>
-                    </div>
-                    <h3>Metasploit</h3>
-                    <p>Penetration testing framework</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                    <h3>Wireshark</h3>
-                    <p>Network protocol analyzer</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h3>Burp Suite</h3>
-                    <p>Web vulnerability scanner</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Kali Linux</h3>
-                    <p>Security testing operating system</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Splunk</h3>
-                    <p>Security information and event management</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-spider"></i>
-                    </div>
-                    <h3>OWASP ZAP</h3>
-                    <p>Web application security scanner</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-fingerprint"></i>
-                    </div>
-                    <h3>Hashcat</h3>
-                    <p>Advanced password recovery tool</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>CloudGoat</h3>
-                    <p>Vulnerable-by-design cloud environment</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>MobSF</h3>
-                    <p>Mobile Security Framework</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Nuclei</h3>
-                    <p>Vulnerability scanner based on templates</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Covenant</h3>
-                    <p>C2 framework for red team operations</p>
-                </div>
-            </div>
+    <section id="metrics" tabindex="0" aria-label="Expertise metrics and skill proficiency">
+      <h2>Skills & Performance Metrics</h2>
+      <div class="chart-container">
+        <div class="chart-wrapper">
+          <canvas id="skillsChart"></canvas>
         </div>
+      </div>
+      <br>
+      <div class="chart-container">
+        <div class="chart-wrapper">
+          <canvas id="skillsChart2"></canvas>
+        </div>
+      </div>
+      
     </section>
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>I initially met Leo under some difficult circumstances. He came into a foundering pentest project and quickly completed the requested penetration testing and reporting professionally. Leo's technical skills related to penetration testing and his soft skills related to client engagement are excellent. I highly recommend Leo and his firm, anytime you need a penetration test completed.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Richard Haag</h4>
-                            <p>Vice President at Intersec Worldwide Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>Leonardo's been an exceptional co-worker, with immense dedication and talent for thinking in a different angle. He's quick to catch on possible errors and misconfigurations during pentests and system evaluations, and is a through tester.</p>
-                    <p>He works exceptionally well when it comes to teamwork and undoubtedly is a great asset in any company or team he's working at.</p>
-                 </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <i class="fas fa-user"></i>
-                       </div>
-                        <div class="author-info">
-                            <h4>Henrique Rabelo</h4>
-                            <p>Security Engineer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+   
+
+    <section id="experience" tabindex="0" aria-label="Professional experience">
+      <h2>Professional Experience</h2>
+
+      <article>
+        <h3>OISECURITY (Self-Employed) – Remote</h3>
+        <p><em>Owner & Cybersecurity Consultant</em> (Dec 2024 – Present)</p>
+        <ul>
+          <li>Founded a cybersecurity consultancy helping startups & SMBs improve security posture</li>
+          <li>Delivered penetration tests and compliance support for clients in Brazil and Saudi Arabia (PCI-DSS, SAMA)</li>
+          <li>Supported PCI-DSS assessments in collaboration with Intersec Worldwide</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>REDBELT SECURITY – Brazil (Hybrid)</h3>
+        <p><em>Senior Penetration Testing Consultant</em> (Feb 2025)</p>
+        <ul>
+          <li>Collaborated with Red Team on assessments for large national clients</li>
+          <li>Engagement ended early by mutual agreement</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>INTERSEC WORLDWIDE – USA (Remote)</h3>
+        <p><em>Principal Cybersecurity Consultant</em> (Oct 2024 – Mar 2025)</p>
+        <ul>
+          <li>Led web app, network, VPN and cloud penetration tests</li>
+          <li>Prioritized 50+ vulnerabilities with 85% mitigation success</li>
+          <li>Improved remediation times from 30 to 15 days via stakeholder communication</li>
+          <li>Contributed to successful PCI-DSS certification retests</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>CYBERNETIK CO. – USA (Remote)</h3>
+        <p><em>Senior Penetration Tester</em> (Aug 2023 – Oct 2024)</p>
+        <ul>
+          <li>Over 30 international penetration tests across critical environments</li>
+          <li>Discovered 300+ vulnerabilities including high-risk misconfigurations</li>
+          <li>Managed update communications & documentation throughout test lifecycles</li>
+        </ul>
+        <p><em>Penetration Tester</em> (Aug 2022 – Aug 2023)</p>
+        <ul>
+          <li>Performed manual web app testing using Burp Suite Pro</li>
+          <li>Found common vulnerabilities: SQLi, XSS, IDOR, and broken access control</li> 
+          <li>Used MobSF, Jadx, and Frida for mobile testing (Android/iOS)</li> 
+          <li>Automated tasks using Nessus, OpenVAS, and custom scripts</li> 
+        </ul>
+        <p><em>Intern Information Security Analyst</em> (Sep 2021 – Aug 2022)</p>
+        <ul>
+          <li>Performed manual web app testing using Burp Suite Pro</li>
+          <li>Found common vulnerabilities: SQLi, XSS, IDOR, and broken access control</li> 
+          <li>Used MobSF, Jadx, and Frida for mobile testing (Android/iOS)</li> 
+          <li>Automated tasks using Nessus, OpenVAS, and custom scripts</li> 
+        </ul>
+      </article>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>leonardooi@oisecurity.co</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <p><a href="https://linkedin.com/in/leonardooliveoi" target="_blank">linkedin.com/in/leonardooliveoi</a></p>
-                    </div>
-                    <div class="contact-cta">
-                        <p>Ready to secure your digital assets?</p>
-                        <a href="mailto:leonardooi@oisecurity.co" class="btn-primary">Contact Now</a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
+    <section id="certifications" tabindex="0" aria-label="Professional certifications">
+      <h2>Certifications & MBAs</h2>
+      <div class="certifications-scroll">
+    
+        <div class="certification-item">
+          <strong>MBA in Information Security</strong>
+          <small>2023</small>
         </div>
+    
+        <div class="certification-item">
+          <strong>eJPT</strong>
+          <small>2023</small>
+        </div>
+    
+        <div class="certification-item">
+          <strong>Certified in Cybersecurity (CC)</strong>
+          <small>2024</small>
+        </div>
+    
+        <div class="certification-item">
+          <strong>SYCP</strong>
+          <small>2023</small>
+        </div>
+    
+        <div class="certification-item">
+          <strong>CAPC</strong>
+          <small>2023</small>
+        </div>
+    
+        <div class="certification-item">
+          <strong>ISO/IEC 27001 Associate</strong>
+          <small>2024</small>
+        </div>
+    
+        <div class="certification-item">
+          <strong>Cisco CyberOps Associate</strong>
+          <small>2022</small>
+        </div>
+    
+      </div>
+    </section>
+    
+    
+
+    <section id="services" tabindex="0" aria-label="Services offered">
+      <h2>Services Offered (OiSecurity)</h2>
+      <div class="services-grid">
+
+        <div class="service-item">
+          <h3>Passive OSINT</h3>
+          <p>We map your digital footprint using passive techniques, identifying invisible risks without interacting with your infrastructure.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Active OSINT</h3>
+          <p>We actively assess your online presence, uncovering exploitable risks that are publicly accessible.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Risk Radar</h3>
+          <p>Comprehensive evaluation of your domains, social media, leaked data, hidden services, and threats targeting your sector.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Threat Radar</h3>
+          <p>We detects in real time if your brand is being mentioned in dark web forums, leak channels, or monitored by threat actors.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Domain Monitoring</h3>
+          <p>Continuously monitors for typosquatting and malicious domain impersonation attempts, with real-time alerts.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Domain Scan (Ad-Hoc)</h3>
+          <p>One-time scan to detect typosquatting threats or cloned domain variations attempting to mimic your brand.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Digital Shield – Blue Sword</h3>
+          <p>We protect systems, infrastructure, and people with essential hardening and practical antiphishing training.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Offensive Simulation - Red Shield</h3>
+          <p>We simulate real-world attacks, provide response plans, and initiate proactive monitoring actions.</p>
+        </div>
+      
+        <div class="service-item">
+          <h3>Anti-Phishing Awareness Training</h3>
+          <p>Simulated campaigns and hands-on guidance to drastically reduce human-related security incidents.</p>
+        </div>
+      
+      </div>
+      
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 OiSecurity. All rights reserved.</p>
-        </div>
-    </footer>
+    
 
-    <script src="script.js"></script>
+    <section class="tools-section">
+      <h2>Security Tools Expertise</h2>
+    
+      <div class="tools-category">
+        <h3>Web & Network Security</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>Nmap</strong><small>Advanced (90%)</small></div>
+          <div class="tool-item"><strong>Metasploit</strong><small>Intermediate (75%)</small></div>
+          <div class="tool-item"><strong>Burp Suite Pro</strong><small>Expert (95%)</small></div>
+          <div class="tool-item"><strong>OWASP ZAP</strong><small>Intermediate (70%)</small></div>
+          <div class="tool-item"><strong>Nuclei</strong><small>Advanced (80%)</small></div>
+          <div class="tool-item"><strong>Nessus</strong><small>Advanced (85%)</small></div>
+          <div class="tool-item"><strong>OpenVAS</strong><small>Intermediate (70%)</small></div>
+        </div>
+      </div>
+    
+      <div class="tools-category">
+        <h3>Mobile Security & Reverse Engineering</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>MobSF</strong><small>Advanced (85%)</small></div>
+          <div class="tool-item"><strong>Frida</strong><small>Advanced (85%)</small></div>
+          <div class="tool-item"><strong>Jadx</strong><small>Advanced (80%)</small></div>
+        </div>
+      </div>
+    
+      <div class="tools-category">
+        <h3>SAST & Traffic Analysis</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>SonarQube</strong><small>Intermediate (75%)</small></div>
+          <div class="tool-item"><strong>Wireshark</strong><small>Intermediate (70%)</small></div>
+        </div>
+      </div>
+    
+      <div class="tools-category">
+        <h3>Cloud Security</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>AWS Security Hub</strong><small>Intermediate (75%)</small></div>
+          <div class="tool-item"><strong>Azure Defender</strong><small>Intermediate (70%)</small></div>
+          <div class="tool-item"><strong>ScoutSuite</strong><small>Advanced (80%)</small></div>
+        </div>
+      </div>
+    
+      <div class="tools-category">
+        <h3>Thick Client Security</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>Burp Suite Repeater</strong><small>Advanced (85%)</small></div>
+          <div class="tool-item"><strong>Procmon</strong><small>Intermediate (70%)</small></div>
+          <div class="tool-item"><strong>x64dbg</strong><small>Intermediate (65%)</small></div>
+        </div>
+      </div>
+    
+      <div class="tools-category">
+        <h3>API Security</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>Postman</strong><small>Advanced (85%)</small></div>
+          <div class="tool-item"><strong>Burp Suite Intruder</strong><small>Advanced (90%)</small></div>
+          <div class="tool-item"><strong>Insomnia</strong><small>Intermediate (70%)</small></div>
+        </div>
+      </div>
+    
+      <div class="tools-category">
+        <h3>OS & Automation</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>Kali Linux</strong><small>Advanced (85%)</small></div>
+          <div class="tool-item"><strong>Hashcat</strong><small>Basic (60%)</small></div>
+        </div>
+      </div>
+
+      <div class="tools-category">
+        <h3>Self-Developed AI Tools</h3>
+        <div class="tools-scroll">
+          <div class="tool-item"><strong>OiSentinel (v0.0.1)</strong><small>AI-Driven Pentest Tool</small></div>
+          <div class="tool-item"><strong>AI Security Check (v0.1)</strong><small>Quick AI-Driven security Check</small></div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+
+    <section id="compliance" tabindex="0" aria-label="Compliance expertise">
+      <h2>Compliance & Framework Expertise</h2>
+    
+      <div class="compliance-category">
+        <h3>Compliances & Standards</h3>
+
+        <div class="compliance-scroll">
+          <div class="compliance-item">
+            <strong>PCI-DSS (Pentesting)</strong><small>Advanced (10+ projects)</small>
+          </div>
+          <div class="compliance-item">
+            <strong>ISO 27001</strong><small>Intermediate</small>
+          </div>
+          <div class="compliance-item">
+            <strong>LGPD</strong><small>Advanced</small>
+          </div>
+          <div class="compliance-item">
+            <strong>GDPR</strong><small>Advanced</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="compliance-category">
+        <h3>Cybersecurity Frameworks</h3>
+        <div class="compliance-scroll">
+          <div class="compliance-item">
+            <strong>OWASP Top 10</strong><small>Expert</small>
+          </div>
+          <div class="compliance-item">
+            <strong>MITRE ATT&CK</strong><small>Advanced</small>
+          </div>
+          <div class="compliance-item">
+            <strong>NIST CSF</strong><small>Advanced</small>
+          </div>
+          <div class="compliance-item">
+            <strong>ISO 27005 (Risk)</strong><small>Intermediate</small>
+          </div>
+          <div class="compliance-item">
+            <strong>OWASP ASVS</strong><small>Intermediate</small>
+          </div>
+        </div>
+      </div>
+      
+   
+    </section>
+    
+    <section id="testimonials" tabindex="0" aria-label="Client testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <p>"I initially met Leo under some difficult circumstances. He came into a foundering pentest project and quickly completed the requested penetration testing and reporting professionally. Leo's technical skills related to penetration testing and his soft skills related to client engagement are excellent. I highly recommend Leo and his firm, anytime you need a penetration test completed."</p>
+          <div class="testimonial-author">
+            <h4>Richard Haag</h4>
+            <p>Vice President at Intersec Worldwide Inc.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" tabindex="0" aria-label="Contact information">
+      <h2>Contact</h2>
+      <p><a href="mailto:leonardooi@oisecurity.co"><span class="material-icons" aria-hidden="true">email</span> leonardooi@oisecurity.co</a></p>
+      <p><a href="tel:+5511943852302"><span class="material-icons" aria-hidden="true">phone</span> (BRA) +55 (11) 94385-2302</a></p>
+      <p><a href="https://www.linkedin.com/in/leonardooliveoi/" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true">link</span> linkedin.com/in/leonardooliveoi</a></p>
+      <p><a href="https://github.com/leooliveoi" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true">code</span> github.com/leooliveoi</a></p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    &copy; 2025 Leonardo O. OI — All rights reserved.
+  </footer>
+
+  <script>
+    // Original animation code for other elements
+    const progressFills = document.querySelectorAll('.progress-fill');
+    let animated = false;
+
+    function animateSkills() {
+      if (animated) return;
+      progressFills.forEach(fill => {
+        let width = fill.getAttribute('data-fill');
+        fill.style.width = width;
+      });
+      animated = true;
+    }
+
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85;
+    }
+
+    function checkAnimate() {
+      const metricsSection = document.getElementById('metrics');
+      if (metricsSection && isInViewport(metricsSection)) {
+        animateSkills();
+        window.removeEventListener('scroll', checkAnimate);
+      }
+    }
+
+    window.addEventListener('scroll', checkAnimate);
+    window.addEventListener('load', checkAnimate);
+
+    // Spider Chart Initialization
+    document.addEventListener('DOMContentLoaded', function () {
+  try {
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+
+    const data = {
+      labels: [
+      'Web Application Pentesting',
+      'Mobile Application Security',
+      'Network & VPN Assessment',
+      'Cloud Security (AWS/Azure)',
+      'SAST / DAST / SCA',
+      'Vulnerability Assessment',
+      'PCI-DSS & SAMA Compliance',
+      'Security Automation (Python)',
+      'Threat Modeling',
+      'Security Tooling & Frameworks'
+      ],
+      datasets: [{
+        label: 'Technical Skills',
+        data: [95, 90, 85, 80, 90, 95, 90, 85, 80, 85],
+        fill: true,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }]
+    };
+
+    const config = {
+      type: 'radar',
+      data: data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        },
+        scales: {
+          r: {
+            min:'0',
+            max:'100',
+            angleLines: {
+              display: true,
+              color: 'rgba(0, 0, 0, 0.1)'
+            },
+            ticks: {
+              backdropColor: 'rgba(0, 0, 0, 0)',
+              color: '#423d39',
+              display: false
+            },
+            grid: {
+              color: 'rgba(0, 0, 0, 0.1)'
+            },
+            pointLabels: {
+              color: '#423d39',
+              font: {
+                family: "'Poppins', sans-serif",
+                size: 12
+              }
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            titleFont: {
+              family: "'Poppins', sans-serif",
+              size: 14
+            },
+            bodyFont: {
+              family: "'Poppins', sans-serif",
+              size: 13
+            },
+            padding: 10,
+            cornerRadius: 5
+          }
+        }
+      }
+    };
+
+    const skillsChart = new Chart(ctx, config);
+    console.log('Chart initialized successfully');
+  } catch (error) {
+    console.error('Error initializing chart:', error);
+  }
+});
+
+
+    // Spider Chart 2 Initialization
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        const ctx = document.getElementById('skillsChart2').getContext('2d');
+        
+        const data = {
+          labels: [
+            'Problem Solving',
+            'Attention to Detail',
+            'Report Writing',
+            'Client Communication',
+            'Remote Collaboration',
+            'Time Management',
+            'Continuous Learning',
+            'Adaptability',
+            'Strategic Thinking',
+            'Initiative & Autonomy'
+],
+datasets: [{
+  label: 'Non-Technical Skills',
+  data: [95, 90, 90, 95, 95, 85, 90, 90, 85, 95],
+            fill: true,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgb(54, 162, 235)',
+            pointBackgroundColor: 'rgb(54, 162, 235)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(54, 162, 235)'
+          }]
+        };
+
+        const config = {
+          type: 'radar',
+          data: data,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+              line: {
+                borderWidth: 3
+              }
+            },
+            scales: {
+              r: {
+                min:'0',
+                max:'100',
+                angleLines: {
+                  display: true,
+                  color: 'rgba(0, 0, 0, 0.1)'
+                },
+                ticks: {
+                  backdropColor: 'rgba(0, 0, 0, 0)',
+                  color: '#423d39',
+                  display: false
+                },
+                grid: {
+                  color: 'rgba(0, 0, 0, 0.1)'
+                },
+                pointLabels: {
+                  color: '#423d39',
+                  font: {
+                    family: "'Poppins', sans-serif",
+                    size: 12
+                  }
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: true
+              },
+              tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                titleFont: {
+                  family: "'Poppins', sans-serif",
+                  size: 14
+                },
+                bodyFont: {
+                  family: "'Poppins', sans-serif",
+                  size: 13
+                },
+                padding: 10,
+                cornerRadius: 5
+              }
+            }
+          }
+        };
+
+        const skillsChart = new Chart(ctx, config);
+        console.log('Chart initialized successfully');
+      } catch (error) {
+        console.error('Error initializing chart:', error);
+      }
+    });
+    </script>
 </body>
 </html>
